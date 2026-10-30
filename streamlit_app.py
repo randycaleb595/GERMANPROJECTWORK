@@ -2,7 +2,6 @@ import streamlit as st
 import os
 import io
 import json
-import gTTs
 from gtts import gTTS
 
 APP_URL = "gemini.google.com"
