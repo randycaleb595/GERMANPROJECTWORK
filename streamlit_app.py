@@ -7,7 +7,7 @@ import requests
 import streamlit as st
 
 NEXUS = "https://nexusai123.base44.app/functions"
-DEFAULT_TARGET = "Kiswahili"
+DEFAULT_TARGET = "German"
 TIMEOUT = 180
 
 LANGUAGE_GROUPS = {
@@ -62,7 +62,7 @@ LANGUAGE_GROUPS = {
 ALL_LANGUAGES = [lang for group in LANGUAGE_GROUPS.values() for lang in group]
 SOURCE_LANGUAGES = ["Auto-detect"] + ALL_LANGUAGES
 
-st.set_page_config(page_title="Deutschefy", page_icon="🇹🇿", layout="centered")
+st.set_page_config(page_title="DEUSCHEFY", page_icon="GHP", layout="centered")
 
 THEME = """
 <style>
