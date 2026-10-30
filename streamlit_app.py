@@ -2,9 +2,9 @@ import streamlit as st
 import os
 import io
 import json
-import google.gemini as genai
 from gtts import gTTS
 
+APP_URL = "gemini.google.com"
 api_key = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY"))
 if not api_key:
     st.error("Missing GEMINI_API_KEY. Add it in Streamlit secrets.")
