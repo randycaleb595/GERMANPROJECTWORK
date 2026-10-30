@@ -1,6 +1,2 @@
-gemini.google
-json
-io
-os
-gTTs
 streamlit
+requests (Streamlit Cloud installs them automatically).
