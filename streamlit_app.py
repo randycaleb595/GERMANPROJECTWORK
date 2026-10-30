@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import io
 import json
-import google.generativeai as genai
+import google.gemini as genai
 from gtts import gTTS
 
 api_key = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY"))
