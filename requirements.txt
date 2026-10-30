@@ -1,0 +1,6 @@
+gemini.google
+json
+io
+os
+gtts
+streamlit
