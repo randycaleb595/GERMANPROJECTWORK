@@ -240,6 +240,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 for i, t in enumerate(ss.turns):
     render_turn(i, t)
     st.write("")
+"""
     <style>
 /* ---------- canvas ---------- */
 .stApp, [data-testid="stAppViewContainer"] { background:
