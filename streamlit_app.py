@@ -369,7 +369,9 @@ if ss.turns:
 
 if not ss.turns:
     st.markdown(
-        f'<div class="dfy-hero"><h1>DEUTSCHEFY</h1><p>.</p></div>",
+        f'<div class="dfy-hero"><h1>DEUTSCHEFY</h1><p>Type in any of {len(ALL_LANGUAGES)} languages, '
+        f"record, or upload audio. Then ask why a translation works the way it does, "
+        f"or take a quick test on it.</p></div>",
         unsafe_allow_html=True,
     )
 
