@@ -2,7 +2,6 @@ import base64
 import hashlib
 import html
 import json
-
 import requests
 import streamlit as st
 
@@ -226,7 +225,7 @@ ss = st.session_state
 ss.setdefault("turns", [])
 ss.setdefault("seen_audio", set())
 ss.setdefault("error", "")
-ss.setdefault("quiz_count", 4)
+ss.setdefault("quiz_count", 5)
 ss.setdefault("target_lang", DEFAULT_TARGET)
 ss.setdefault("source_lang", "Auto-detect")
 
@@ -356,11 +355,11 @@ def render_turn(i, t):
 with st.sidebar:
     st.markdown('<div class="dfy-brand" style="font-size:1.25rem;margin-bottom:1rem">DEUTSCHEFY</div>',
                 unsafe_allow_html=True)
-    st.button("＋ New Translation", on_click=reset, key="new")
+    st.button("New Translation", on_click=reset, key="new")
     st.selectbox("Translate into", ALL_LANGUAGES,
                  index=ALL_LANGUAGES.index(DEFAULT_TARGET), key="target_lang")
     st.number_input("Questions per test", min_value=1, step=1, key="quiz_count")
-    st.markdown('<div class="dfy-muted">Powered by the Nexus backend.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="dfy-muted">.</div>', unsafe_allow_html=True)
 
 top = st.columns([6, 1])
 top[0].markdown('<div class="dfy-brand" style="text-align:right;font-size:.85rem;padding-top:.35rem">DEUTSCHEFY</div>',
@@ -370,9 +369,7 @@ if ss.turns:
 
 if not ss.turns:
     st.markdown(
-        f'<div class="dfy-hero"><h1>DEUTSCHEFY</h1><p>Type in any of {len(ALL_LANGUAGES)} languages, '
-        f"record, or upload audio. Then ask why a translation works the way it does, "
-        f"or take a quick test on it.</p></div>",
+        f'<div class="dfy-hero"><h1>DEUTSCHEFY</h1><p>Have fun as you figure out what your translation means as you also do simple quizzes.</p></div>",
         unsafe_allow_html=True,
     )
 
