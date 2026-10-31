@@ -369,7 +369,7 @@ if ss.turns:
 
 if not ss.turns:
     st.markdown(
-        f'<div class="dfy-hero"><h1>DEUTSCHEFY</h1><p>Have fun as you figure out what your translation means as you also do simple quizzes.</p></div>",
+        f'<div class="dfy-hero"><h1>DEUTSCHEFY</h1><p>.</p></div>",
         unsafe_allow_html=True,
     )
 
