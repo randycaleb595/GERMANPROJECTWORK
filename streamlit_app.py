@@ -64,6 +64,130 @@ SOURCE_LANGUAGES = ["Auto-detect"] + ALL_LANGUAGES
 st.set_page_config(page_title="DEUSCHEFY", page_icon="GHP", layout="centered")
 
 THEME = """
+<style>
+/* ---------- canvas ---------- */
+.stApp, [data-testid="stAppViewContainer"] { background:
+  radial-gradient(ellipse at 20% 50%, rgba(240,169,61,.05) 0%, transparent 50%),
+  radial-gradient(ellipse at 80% 20%, rgba(46,184,160,.05) 0%, transparent 50%), #0A1614 !important; }
+[data-testid="stHeader"] { background: transparent !important; }
+[data-testid="stSidebar"] { background:#0B1A17 !important; border-right:1px solid rgba(240,169,61,.15); }
+.block-container { padding-top: 2.4rem; }
+
+/* ---------- text ---------- */
+html, body, [data-testid="stAppViewContainer"], [data-testid="stMarkdownContainer"],
+[data-testid="stMarkdownContainer"] p, [data-testid="stMarkdownContainer"] li,
+[data-testid="stWidgetLabel"], [data-testid="stWidgetLabel"] p, label,
+[data-testid="stCaptionContainer"] { color:#EDE7DA; }
+[data-testid="stWidgetLabel"] p, [data-testid="stCaptionContainer"] { color:#94A8A2; font-size:.78rem; }
+[data-testid="stMarkdownContainer"] h1, [data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3 { color:#F0A93D; letter-spacing:.04em; }
+[data-testid="stMarkdownContainer"] em { color:#C8D6D1; }
+[data-testid="stMarkdownContainer"] code { color:#F0A93D; background:rgba(240,169,61,.10); }
+[data-testid="stSpinner"] p { color:#94A8A2; }
+
+/* ---------- inputs ---------- */
+[data-baseweb="select"] > div, [data-baseweb="input"] input, textarea,
+[data-testid="stFileUploaderDropzone"], [data-testid="stAudioInput"] {
+  background:#0F1D1A !important; border-color:#2B4340 !important; color:#EDE7DA !important; }
+[data-baseweb="select"] svg { fill:#94A8A2; }
+[data-baseweb="popover"] [role="listbox"], [data-baseweb="popover"] ul {
+  background:#0F1D1A !important; border:1px solid #2B4340 !important; }
+[data-baseweb="popover"] li, [data-baseweb="popover"] [role="option"] { color:#EDE7DA !important; }
+[data-baseweb="popover"] li:hover, [data-baseweb="popover"] [aria-selected="true"] {
+  background:rgba(240,169,61,.14) !important; }
+[data-testid="stFileUploaderDropzone"] { padding:.55rem .7rem; }
+[data-testid="stFileUploaderDropzone"] span, [data-testid="stFileUploaderDropzone"] small { color:#94A8A2 !important; }
+[data-testid="stFileUploaderDropzone"] button {
+  background:transparent !important; color:#F0A93D !important; border:1px solid rgba(240,169,61,.45) !important; }
+[data-testid="stChatInput"], [data-testid="stChatInput"] > div,
+[data-testid="stChatInputTextArea"] {
+  background:#0F1D1A !important; border-color:#2B4340 !important; color:#EDE7DA !important; }
+[data-testid="stChatInput"] textarea { color:#EDE7DA !important; }
+[data-testid="stChatInput"] textarea::placeholder { color:#6C807B !important; }
+
+/* ---------- buttons ---------- */
+.stButton > button { background:transparent; color:#94A8A2; border:1px solid #2B4340;
+  border-radius:8px; min-height:0; padding:.25rem .7rem; }
+.stButton > button p { font-size:.75rem; }
+.stButton > button:hover { color:#F0A93D; border-color:rgba(240,169,61,.5); background:rgba(240,169,61,.06); }
+.stButton > button:disabled { color:#6C807B; border-color:#22332F; }
+[class*="st-key-opt_"] button { width:100%; justify-content:flex-start; text-align:left; }
+[class*="st-key-opt_"] button p { color:#EDE7DA; font-size:.8rem; }
+
+/* ---------- panels ---------- */
+[data-testid="stVerticalBlockBorderWrapper"] {
+  border:1px solid #2B4340 !important; border-radius:12px; background:rgba(15,29,26,.6); }
+hr { border-color:rgba(240,169,61,.15); }
+pre { background:#0F1D1A !important; border:1px solid #2B4340; }
+
+/* ---------- brand + bubbles ---------- */
+.dfy-brand { color:#F0A93D; font-weight:800; letter-spacing:.3em; }
+.dfy-hero { text-align:center; padding:4rem 1rem 3rem; }
+.dfy-hero h1 { color:#F0A93D; font-weight:800; letter-spacing:.3em; font-size:2.3rem; margin:0 0 .75rem; }
+.dfy-hero p { color:#94A8A2; font-size:.9rem; max-width:28rem; margin:0 auto; }
+.dfy-row { display:flex; margin:.3rem 0; }
+.dfy-bubble { max-width:85%; padding:.6rem 1rem; border-radius:16px; line-height:1.55;
+  font-size:.92rem; color:#EDE7DA; }
+.dfy-user { margin-left:auto; background:rgba(240,169,61,.10); border:1px solid rgba(240,169,61,.25);
+  border-bottom-right-radius:4px; }
+.dfy-de { background:#0F1D1A; border:1px solid #2B4340; border-bottom-left-radius:4px; }
+.dfy-label { font-size:.62rem; text-transform:uppercase; letter-spacing:.18em; margin-bottom:.2rem; color:#94A8A2; }
+.dfy-user .dfy-label { color:rgba(240,169,61,.7); }
+.dfy-kicker { font-size:.62rem; text-transform:uppercase; letter-spacing:.18em; color:#F0A93D; }
+.dfy-muted { color:#94A8A2; font-size:.75rem; }
+.dfy-error { color:#E5604E; font-size:.78rem; }
+
+/* ---------- compact composer ---------- */
+.dfy-composer {
+  background: rgba(15,29,26,.8);
+  border: 1px solid rgba(240,169,61,.18);
+  border-radius: 14px;
+  padding: 0.5rem 0.7rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 0 1px rgba(240,169,61,.03);
+}
+.dfy-mini {
+  color: #94A8A2;
+  font-size: .72rem;
+  line-height: 1.2;
+  padding-top: .45rem;
+  white-space: nowrap;
+}
+.dfy-mini strong { color: #F0A93D; }
+.dfy-mini-box .stTextInput > div > div {
+  background: #0F1D1A !important;
+  border: 1px solid #2B4340 !important;
+  border-radius: 10px !important;
+  min-height: 42px !important;
+}
+.dfy-mini-box input {
+  color: #EDE7DA !important;
+  font-size: .92rem !important;
+}
+.dfy-mini-box input::placeholder {
+  color: #6C807B !important;
+}
+.dfy-mini-box .stButton > button {
+  min-height: 42px !important;
+  border-radius: 10px !important;
+  background: rgba(240,169,61,.10) !important;
+  border: 1px solid rgba(240,169,61,.35) !important;
+  color: #F0A93D !important;
+}
+.dfy-inline-tools {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+.dfy-inline-tools .stFileUploader,
+.dfy-inline-tools .stAudioInput {
+  width: auto !important;
+}
+</style>
+"""
+
+THEME = """
     <style>
 /* ---------- canvas ---------- */
 .stApp, [data-testid="stAppViewContainer"] { background:
