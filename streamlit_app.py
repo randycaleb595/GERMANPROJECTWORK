@@ -72,7 +72,7 @@ THEME = """
   radial-gradient(ellipse at 80% 20%, rgba(46,184,160,.05) 0%, transparent 50%), #0A1614 !important; }
 [data-testid="stHeader"] { background: transparent !important; }
 [data-testid="stSidebar"] { background:#0B1A17 !important; border-right:1px solid rgba(240,169,61,.15); }
-.block-container { padding-top: 1.4rem; }
+.block-container { padding-top: 2.4rem; }
 
 /* ---------- text ---------- */
 html, body, [data-testid="stAppViewContainer"], [data-testid="stMarkdownContainer"],
